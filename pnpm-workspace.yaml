@@ -2,3 +2,7 @@ packages:
   - packages/**
   - scripts
   - web/**
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
