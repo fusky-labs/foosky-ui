@@ -1,27 +1,18 @@
-import { defineConfig } from "astro/config"
-import vercel from "@astrojs/vercel/serverless"
-import tailwind from "@astrojs/tailwind"
-import svelte from "@astrojs/svelte"
-import autoprefixer from "autoprefixer"
-import Icons from "unplugin-icons/vite"
+// @ts-check
+import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
+import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: vercel(),
-  integrations: [tailwind(), svelte()],
+  vite: {
+    plugins: [tailwindcss()]
+  },
   prefetch: {
     prefetchAll: true,
   },
-  vite: {
-    plugins: [
-      Icons({
-        compiler: "astro",
-        customCollections: {},
-      }),
-    ],
-    postcss: {
-      plugins: [autoprefixer({})],
-    },
-  },
-})
+
+  integrations: [sitemap(), svelte()]
+});

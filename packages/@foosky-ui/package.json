@@ -5,6 +5,6 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "svelte": "^5.0.0"
+    "svelte": "^5.55.5"
   }
 }

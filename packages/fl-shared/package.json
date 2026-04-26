@@ -1,5 +1,8 @@
 {
   "name": "@fusky-labs-internal/shared-components",
   "private": true,
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "svelte": "^5.55.5"
+  }
 }
