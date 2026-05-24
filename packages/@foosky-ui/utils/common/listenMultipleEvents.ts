@@ -3,19 +3,21 @@ interface ListenMultiEventOptions {
   callOnInit?: boolean
 }
 
-export const listenMultipleEvents = <T extends Element | Window>(
+// biome-ignore format: readability
+export const listenMultipleEvents = <T extends Element | Window, Callback extends (e?: Event) => void>(
   target: T,
   definedEvents: string[],
-  callback: (e?: unknown) => void,
+  callback: Callback,
   options?: ListenMultiEventOptions,
 ) => {
-  if (
-    Array.isArray(definedEvents) &&
-    definedEvents.some((x) => typeof x !== "string")
-  )
+  // biome-ignore format: readability
+  if (Array.isArray(definedEvents) && definedEvents.some((e) => typeof e !== "string")) {
     return
+  }
 
-  if (options && options.callOnInit) callback()
+  if (options?.callOnInit) callback()
 
-  definedEvents.forEach((event) => target.addEventListener(event, callback))
+  for (const event of definedEvents) {
+    target.addEventListener(event, callback)
+  }
 }

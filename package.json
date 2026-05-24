@@ -1,11 +1,10 @@
 {
-  "name": "foosky-ui",
+  "name": "foosky-ui-root",
   "version": "0.0.1",
   "repository": "https://github.com/fusky-labs/foosky-ui.git",
-  "author": "Kerby Keith Aquino <hello@kurojifusky.com>",
-  "license": "MIT",
   "private": true,
   "type": "module",
+  "license": "Apache-2.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm"
   },
